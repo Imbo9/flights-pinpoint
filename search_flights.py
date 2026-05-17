@@ -1,7 +1,23 @@
 import subprocess, json
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-ORIGINS = ["BGY", "MXP", "VCE", "BLQ", "VRN", "TRN"]
+# All commercial airports in North Italy (Bologna northwards)
+ORIGINS = [
+    "BGY",  # Milan Bergamo Orio al Serio
+    "MXP",  # Milan Malpensa
+    "LIN",  # Milan Linate
+    "VCE",  # Venice Marco Polo
+    "TSF",  # Venice Treviso
+    "BLQ",  # Bologna
+    "VRN",  # Verona
+    "TRN",  # Turin
+    "GOA",  # Genoa
+    "TRS",  # Trieste
+    "PMF",  # Parma
+    "VBS",  # Brescia Montichiari
+    "BZO",  # Bolzano
+    "RMI",  # Rimini
+]
 DESTINATIONS = [
     "KEF", "FAE",
     "OSL", "BGO", "TRD", "TOS", "SVG", "BOO", "EVE", "LYR",
@@ -54,7 +70,7 @@ def search(origin, dest):
 pairs = [(o, d) for o in ORIGINS for d in DESTINATIONS]
 results = []
 
-print(f"Searching {len(pairs)} origin-destination pairs...")
+print(f"Searching {len(pairs)} origin-destination pairs ({len(ORIGINS)} origins x {len(DESTINATIONS)} destinations)...")
 
 with ThreadPoolExecutor(max_workers=30) as ex:
     futures = {ex.submit(search, o, d): (o, d) for o, d in pairs}
