@@ -1,265 +1,93 @@
 {
-  "top20": [
+  "top40": [
     {
       "origin": "BGY",
       "destination": "TIA",
-      "price": 18.0,
+      "price": 49.0,
       "currency": "USD",
-      "duration_min": 105,
+      "duration_min": 215,
       "stops": 0,
-      "airlines": [
-        "LC P\u00e9ru"
-      ],
-      "departure": "2026-09-07T22:45:00",
-      "arrival": "2026-09-08T00:30:00"
-    },
-    {
-      "origin": "MXP",
-      "destination": "RAK",
-      "price": 24.0,
-      "currency": "USD",
-      "duration_min": 210,
-      "stops": 0,
-      "airlines": [
-        "LC P\u00e9ru"
-      ],
-      "departure": "2026-09-07T05:00:00",
-      "arrival": "2026-09-07T07:30:00"
-    },
-    {
-      "origin": "BGY",
-      "destination": "RAK",
-      "price": 31.0,
-      "currency": "USD",
-      "duration_min": 205,
-      "stops": 0,
-      "airlines": [
-        "Ryanair"
-      ],
-      "departure": "2026-09-07T17:25:00",
-      "arrival": "2026-09-07T19:50:00"
-    },
-    {
-      "origin": "BGY",
-      "destination": "FEZ",
-      "price": 50.0,
-      "currency": "USD",
-      "duration_min": 170,
-      "stops": 0,
-      "airlines": [
-        "Ryanair"
-      ],
-      "departure": "2026-09-07T17:45:00",
-      "arrival": "2026-09-07T19:35:00"
-    },
-    {
-      "origin": "BGY",
-      "destination": "RVN",
-      "price": 72.0,
-      "currency": "USD",
-      "duration_min": 220,
-      "stops": 0,
-      "airlines": [
-        "Ryanair"
-      ],
-      "departure": "2026-09-07T06:00:00",
-      "arrival": "2026-09-07T10:40:00"
-    },
-    {
-      "origin": "MXP",
-      "destination": "FEZ",
-      "price": 80.0,
-      "currency": "USD",
-      "duration_min": 810,
-      "stops": 1,
-      "airlines": [
-        "Vueling"
-      ],
-      "departure": "2026-09-07T18:20:00",
-      "arrival": "2026-09-08T06:50:00"
+      "airlines": [],
+      "departure": "",
+      "arrival": ""
     },
     {
       "origin": "BGY",
       "destination": "VNO",
-      "price": 82.0,
+      "price": 145.0,
       "currency": "USD",
-      "duration_min": 145,
+      "duration_min": 300,
       "stops": 0,
-      "airlines": [
-        "Ryanair"
-      ],
-      "departure": "2026-09-07T07:30:00",
-      "arrival": "2026-09-07T10:55:00"
+      "airlines": [],
+      "departure": "",
+      "arrival": ""
     },
     {
       "origin": "MXP",
-      "destination": "AGA",
-      "price": 92.0,
+      "destination": "RAK",
+      "price": 149.0,
       "currency": "USD",
-      "duration_min": 790,
-      "stops": 1,
-      "airlines": [
-        "Vueling"
-      ],
-      "departure": "2026-09-07T21:45:00",
-      "arrival": "2026-09-08T09:55:00"
+      "duration_min": 410,
+      "stops": 0,
+      "airlines": [],
+      "departure": "",
+      "arrival": ""
     },
     {
-      "origin": "MXP",
-      "destination": "OSL",
-      "price": 95.0,
-      "currency": "USD",
-      "duration_min": 725,
-      "stops": 1,
-      "airlines": [
-        "Air Serbia"
-      ],
-      "departure": "2026-09-07T20:50:00",
-      "arrival": "2026-09-08T08:55:00"
-    },
-    {
-      "origin": "MXP",
+      "origin": "BGY",
       "destination": "CPH",
-      "price": 95.0,
+      "price": 250.0,
       "currency": "USD",
-      "duration_min": 720,
-      "stops": 1,
-      "airlines": [
-        "Air Serbia"
-      ],
-      "departure": "2026-09-07T20:50:00",
-      "arrival": "2026-09-08T08:50:00"
-    },
-    {
-      "origin": "BGY",
-      "destination": "RIX",
-      "price": 102.0,
-      "currency": "USD",
-      "duration_min": 155,
+      "duration_min": 255,
       "stops": 0,
-      "airlines": [
-        "Ryanair"
-      ],
-      "departure": "2026-09-07T16:55:00",
-      "arrival": "2026-09-07T20:30:00"
-    },
-    {
-      "origin": "BGY",
-      "destination": "CMN",
-      "price": 104.0,
-      "currency": "USD",
-      "duration_min": 185,
-      "stops": 0,
-      "airlines": [
-        "Air Arabia Maroc"
-      ],
-      "departure": "2026-09-07T10:50:00",
-      "arrival": "2026-09-07T12:55:00"
-    },
-    {
-      "origin": "MXP",
-      "destination": "RIX",
-      "price": 140.0,
-      "currency": "USD",
-      "duration_min": 160,
-      "stops": 0,
-      "airlines": [
-        "airBaltic"
-      ],
-      "departure": "2026-09-07T18:35:00",
-      "arrival": "2026-09-07T22:15:00"
-    },
-    {
-      "origin": "MXP",
-      "destination": "HEL",
-      "price": 156.0,
-      "currency": "USD",
-      "duration_min": 305,
-      "stops": 1,
-      "airlines": [
-        "airBaltic"
-      ],
-      "departure": "2026-09-07T18:35:00",
-      "arrival": "2026-09-08T00:40:00"
-    },
-    {
-      "origin": "MXP",
-      "destination": "TLL",
-      "price": 158.0,
-      "currency": "USD",
-      "duration_min": 295,
-      "stops": 1,
-      "airlines": [
-        "airBaltic"
-      ],
-      "departure": "2026-09-07T18:35:00",
-      "arrival": "2026-09-08T00:30:00"
-    },
-    {
-      "origin": "MXP",
-      "destination": "TBS",
-      "price": 171.0,
-      "currency": "USD",
-      "duration_min": 2310,
-      "stops": 1,
-      "airlines": [
-        "Air Serbia"
-      ],
-      "departure": "2026-09-07T20:50:00",
-      "arrival": "2026-09-09T13:20:00"
+      "airlines": [],
+      "departure": "",
+      "arrival": ""
     },
     {
       "origin": "BGY",
       "destination": "EDI",
-      "price": 178.0,
+      "price": 263.0,
       "currency": "USD",
-      "duration_min": 155,
+      "duration_min": 305,
       "stops": 0,
-      "airlines": [
-        "Ryanair"
-      ],
-      "departure": "2026-09-07T22:20:00",
-      "arrival": "2026-09-07T23:55:00"
+      "airlines": [],
+      "departure": "",
+      "arrival": ""
     },
     {
       "origin": "BGY",
-      "destination": "TBS",
-      "price": 181.0,
+      "destination": "OSL",
+      "price": 556.0,
       "currency": "USD",
-      "duration_min": 620,
-      "stops": 1,
-      "airlines": [
-        "Fly Armenia Airways"
-      ],
-      "departure": "2026-09-07T12:45:00",
-      "arrival": "2026-09-08T01:05:00"
-    },
-    {
-      "origin": "MXP",
-      "destination": "KEF",
-      "price": 184.0,
-      "currency": "USD",
-      "duration_min": 265,
-      "stops": 0,
-      "airlines": [
-        "easyJet"
-      ],
-      "departure": "2026-09-07T15:25:00",
-      "arrival": "2026-09-07T17:50:00"
+      "duration_min": 1145,
+      "stops": 2,
+      "airlines": [],
+      "departure": "",
+      "arrival": ""
     },
     {
       "origin": "BGY",
-      "destination": "VAN",
-      "price": 185.0,
+      "destination": "GYD",
+      "price": 599.0,
       "currency": "USD",
-      "duration_min": 365,
+      "duration_min": 2000,
+      "stops": 2,
+      "airlines": [],
+      "departure": "",
+      "arrival": ""
+    },
+    {
+      "origin": "BGY",
+      "destination": "EVN",
+      "price": 1268.0,
+      "currency": "USD",
+      "duration_min": 1800,
       "stops": 1,
-      "airlines": [
-        "Fly Armenia Airways"
-      ],
-      "departure": "2026-09-07T12:45:00",
-      "arrival": "2026-09-07T19:50:00"
+      "airlines": [],
+      "departure": "",
+      "arrival": ""
     }
   ],
-  "total_routes": 87
+  "total_routes": 8
 }
