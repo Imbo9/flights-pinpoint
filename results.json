@@ -3,91 +3,145 @@
     {
       "origin": "BGY",
       "destination": "TIA",
-      "price": 49.0,
-      "currency": "USD",
+      "price_eur": 45.0,
+      "price_usd": 49.0,
       "duration_min": 215,
-      "stops": 0,
-      "airlines": [],
-      "departure": "",
-      "arrival": ""
+      "outbound_stops": 0,
+      "return_stops": 0,
+      "airlines": [
+        "Ryanair"
+      ],
+      "outbound_dep": "2026-09-07T19:40:00",
+      "return_arr": "2026-09-16T00:45:00"
     },
     {
       "origin": "BGY",
       "destination": "VNO",
-      "price": 145.0,
-      "currency": "USD",
+      "price_eur": 133.0,
+      "price_usd": 145.0,
       "duration_min": 300,
-      "stops": 0,
-      "airlines": [],
-      "departure": "",
-      "arrival": ""
+      "outbound_stops": 0,
+      "return_stops": 0,
+      "airlines": [
+        "Ryanair"
+      ],
+      "outbound_dep": "2026-09-07T07:30:00",
+      "return_arr": "2026-09-15T08:25:00"
     },
     {
-      "origin": "MXP",
-      "destination": "RAK",
-      "price": 149.0,
-      "currency": "USD",
-      "duration_min": 410,
-      "stops": 0,
-      "airlines": [],
-      "departure": "",
-      "arrival": ""
+      "origin": "BGY",
+      "destination": "ARN",
+      "price_eur": 225.0,
+      "price_usd": 245.0,
+      "duration_min": 325,
+      "outbound_stops": 0,
+      "return_stops": 0,
+      "airlines": [
+        "Ryanair"
+      ],
+      "outbound_dep": "2026-09-07T12:15:00",
+      "return_arr": "2026-09-15T11:50:00"
     },
     {
       "origin": "BGY",
       "destination": "CPH",
-      "price": 250.0,
-      "currency": "USD",
+      "price_eur": 230.0,
+      "price_usd": 250.0,
       "duration_min": 255,
-      "stops": 0,
-      "airlines": [],
-      "departure": "",
-      "arrival": ""
+      "outbound_stops": 0,
+      "return_stops": 0,
+      "airlines": [
+        "Ryanair"
+      ],
+      "outbound_dep": "2026-09-07T08:40:00",
+      "return_arr": "2026-09-15T21:50:00"
     },
     {
       "origin": "BGY",
       "destination": "EDI",
-      "price": 263.0,
-      "currency": "USD",
+      "price_eur": 242.0,
+      "price_usd": 263.0,
       "duration_min": 305,
-      "stops": 0,
-      "airlines": [],
-      "departure": "",
-      "arrival": ""
+      "outbound_stops": 0,
+      "return_stops": 0,
+      "airlines": [
+        "Ryanair"
+      ],
+      "outbound_dep": "2026-09-07T22:20:00",
+      "return_arr": "2026-09-15T19:25:00"
     },
     {
       "origin": "BGY",
       "destination": "OSL",
-      "price": 556.0,
-      "currency": "USD",
+      "price_eur": 512.0,
+      "price_usd": 556.0,
       "duration_min": 1145,
-      "stops": 2,
-      "airlines": [],
-      "departure": "",
-      "arrival": ""
+      "outbound_stops": 1,
+      "return_stops": 1,
+      "airlines": [
+        "Norwegian Air International",
+        "Norwegian Air Shuttle (NAS)"
+      ],
+      "outbound_dep": "2026-09-07T21:45:00",
+      "return_arr": "2026-09-15T19:30:00"
+    },
+    {
+      "origin": "BGY",
+      "destination": "SKP",
+      "price_eur": 512.0,
+      "price_usd": 557.0,
+      "duration_min": 2760,
+      "outbound_stops": 1,
+      "return_stops": 1,
+      "airlines": [
+        "Fly Armenia Airways"
+      ],
+      "outbound_dep": "2026-09-07T12:45:00",
+      "return_arr": "2026-09-16T11:45:00"
     },
     {
       "origin": "BGY",
       "destination": "GYD",
-      "price": 599.0,
-      "currency": "USD",
+      "price_eur": 551.0,
+      "price_usd": 599.0,
       "duration_min": 2000,
-      "stops": 2,
-      "airlines": [],
-      "departure": "",
-      "arrival": ""
+      "outbound_stops": 1,
+      "return_stops": 1,
+      "airlines": [
+        "Fly Armenia Airways"
+      ],
+      "outbound_dep": "2026-09-07T12:45:00",
+      "return_arr": "2026-09-16T11:45:00"
     },
     {
       "origin": "BGY",
-      "destination": "EVN",
-      "price": 1268.0,
-      "currency": "USD",
-      "duration_min": 1800,
-      "stops": 1,
-      "airlines": [],
-      "departure": "",
-      "arrival": ""
+      "destination": "CMB",
+      "price_eur": 618.0,
+      "price_usd": 672.0,
+      "duration_min": 2615,
+      "outbound_stops": 1,
+      "return_stops": 1,
+      "airlines": [
+        "Air Arabia"
+      ],
+      "outbound_dep": "2026-09-07T13:20:00",
+      "return_arr": "2026-09-15T21:50:00"
+    },
+    {
+      "origin": "BGY",
+      "destination": "KTM",
+      "price_eur": 716.0,
+      "price_usd": 778.0,
+      "duration_min": 1910,
+      "outbound_stops": 1,
+      "return_stops": 1,
+      "airlines": [
+        "Air Arabia"
+      ],
+      "outbound_dep": "2026-09-07T13:20:00",
+      "return_arr": "2026-09-15T21:50:00"
     }
   ],
-  "total_routes": 8
+  "total_routes": 10,
+  "note": "Round-trip prices. USD converted to EUR at 0.92 rate."
 }
