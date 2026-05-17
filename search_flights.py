@@ -19,23 +19,102 @@ ORIGINS = [
     "RMI",  # Rimini
 ]
 DESTINATIONS = [
+    # Iceland & Faroe
     "KEF", "FAE",
+
+    # Norway (mainland + extreme north)
     "OSL", "BGO", "TRD", "TOS", "SVG", "BOO", "EVE", "LYR",
+    "KKN",  # Kirkenes (extreme north, Norwegian-Russian border)
+    "LKL",  # Lakselv (Finnmark)
+    "ALF",  # Alta (gateway to Northern Lights)
+    "HAU",  # Haugesund
+
+    # Sweden
     "ARN", "GOT", "UME", "LLA", "KRN",
+    "SDL",  # Sundsvall
+    "OSD",  # Åre/Östersund (Swedish mountain wilderness)
+
+    # Finland
     "HEL", "OUL", "RVN", "KAO", "IVL",
-    "CPH", "GOH",
-    "EDI", "GLA", "INV", "SNN",
+    "KTT",  # Kittilä (Lapland ski & wilderness)
+    "ENF",  # Enontekiö (northernmost Finland)
+
+    # Denmark + Greenland
+    "CPH",
+    "GOH",  # Nuuk, Greenland
+    "SFJ",  # Kangerlussuaq, Greenland
+    "JAV",  # Ilulissat (icefjord UNESCO)
+
+    # Baltics (NEW)
+    "TLL",  # Tallinn, Estonia
+    "RIX",  # Riga, Latvia
+    "VNO",  # Vilnius, Lithuania
+
+    # Scotland & remote British Isles
+    "EDI", "GLA", "INV",
+    "KOI",  # Kirkwall, Orkney Islands
+    "LSI",  # Lerwick/Sumburgh, Shetland Islands
+    "SYY",  # Stornoway, Outer Hebrides
+    "SNN",  # Shannon, Ireland
+
+    # Atlantic islands
     "FNC", "PDL", "TER", "HOR", "SMA",
+
+    # Morocco
     "CMN", "RAK", "FEZ", "TNG", "AGA",
+
+    # China
     "PEK", "PVG", "CAN", "CTU", "KMG", "URC",
+
+    # Japan
     "NRT", "HND", "KIX", "CTS", "FUK",
-    "FRU", "TAS", "DYU", "ALA", "GYD", "EVN", "TBS",
+
+    # Central Asia & Caucasus
+    "FRU",  # Bishkek, Kyrgyzstan
+    "OSS",  # Osh, Kyrgyzstan (gateway to Pamir/southern Kyrgyzstan)
+    "TAS",  # Tashkent, Uzbekistan
+    "SKD",  # Samarkand, Uzbekistan
+    "DYU",  # Dushanbe, Tajikistan
+    "ALA",  # Almaty, Kazakhstan
+    "ASB",  # Ashgabat, Turkmenistan
+    "GYD",  # Baku, Azerbaijan
+    "EVN",  # Yerevan, Armenia
+    "TBS",  # Tbilisi, Georgia
+
+    # Nepal, Bhutan, Mongolia
     "KTM", "PBH", "ULN",
+
+    # South & Southeast Asia
+    "CMB",  # Colombo, Sri Lanka
+    "RGN",  # Yangon, Myanmar
+    "DPS",  # Bali, Indonesia
+
+    # Patagonia & South America wild
     "USH", "PUQ", "PMC",
+    "CUZ",  # Cusco, Peru (Machu Picchu, Andes)
+    "LPB",  # La Paz, Bolivia (world's highest capital)
+
+    # New Zealand
     "AKL", "CHC", "ZQN",
+
+    # Oceania
+    "HBA",  # Hobart, Tasmania (wilderness, Antarctic gateway)
+
+    # Canada & Alaska
     "YVR", "YYC", "ANC",
+    "YXY",  # Whitehorse, Yukon (wilderness)
+
+    # Balkans wild nature
     "TIA", "TGD", "SKP",
+
+    # East Africa
     "ADD", "NBO", "JRO", "EBB",
+
+    # Southern & Central Africa
+    "WDH",  # Windhoek, Namibia (Namib desert, Etosha)
+    "CPT",  # Cape Town, South Africa
+    "VFA",  # Victoria Falls, Zimbabwe
+    "KGL",  # Kigali, Rwanda (gorilla trekking gateway)
 ]
 DATE = "2026-09-07"
 
