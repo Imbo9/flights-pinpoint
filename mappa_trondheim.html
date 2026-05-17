@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trondheim Circuit — 7-15 Set 2026</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Helvetica Neue', Arial, sans-serif; background: #0f1117; color: #e8e8e8; }
+
+  #header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(15,17,23,0.95); backdrop-filter: blur(8px);
+    padding: 14px 24px; border-bottom: 1px solid #2a2d36;
+    display: flex; align-items: center; gap: 20px;
+  }
+  #header h1 { font-size: 15px; font-weight: 600; letter-spacing: 0.04em; color: #fff; }
+  #header span { font-size: 12px; color: #6b7280; letter-spacing: 0.06em; text-transform: uppercase; }
+
+  #map { position: fixed; top: 52px; left: 0; right: 320px; bottom: 0; }
+
+  #sidebar {
+    position: fixed; top: 52px; right: 0; width: 320px; bottom: 0;
+    background: #13151c; border-left: 1px solid #2a2d36;
+    overflow-y: auto; padding: 0;
+  }
+
+  .day-block {
+    border-bottom: 1px solid #1e2029;
+    padding: 16px 20px;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .day-block:hover { background: #1a1d27; }
+  .day-block.active { background: #1a1d27; border-left: 3px solid #4f9eff; }
+
+  .day-label {
+    font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em;
+    color: #4f9eff; margin-bottom: 4px; font-weight: 700;
+  }
+  .day-place { font-size: 14px; font-weight: 600; color: #f0f0f0; margin-bottom: 4px; }
+  .day-desc { font-size: 12px; color: #7a8090; line-height: 1.5; }
+
+  .tag {
+    display: inline-block; font-size: 10px; padding: 2px 7px;
+    border-radius: 3px; margin-top: 6px; margin-right: 4px;
+    font-weight: 600; letter-spacing: 0.04em;
+  }
+  .tag-arch { background: #1e2d4a; color: #4f9eff; }
+  .tag-nature { background: #1a2e1a; color: #4ade80; }
+  .tag-food { background: #2d1e2e; color: #c084fc; }
+  .tag-relax { background: #2d2a1a; color: #fbbf24; }
+
+  .legend {
+    padding: 16px 20px; border-bottom: 1px solid #1e2029;
+    background: #0f1117;
+  }
+  .legend-title { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: #4b5563; margin-bottom: 10px; }
+  .legend-item { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; font-size: 11px; color: #9ca3af; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+
+  .leaflet-popup-content-wrapper {
+    background: #1a1d27; border: 1px solid #2a2d36; border-radius: 6px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5); color: #e8e8e8;
+  }
+  .leaflet-popup-tip { background: #1a1d27; }
+  .leaflet-popup-content { margin: 12px 16px; }
+  .popup-day { font-size: 10px; text-transform: uppercase; color: #4f9eff; font-weight: 700; letter-spacing: 0.08em; }
+  .popup-title { font-size: 14px; font-weight: 700; color: #fff; margin: 4px 0 6px; }
+  .popup-body { font-size: 12px; color: #9ca3af; line-height: 1.5; }
+
+  #distance-bar {
+    padding: 12px 20px; background: #0f1117;
+    font-size: 11px; color: #4b5563;
+    border-top: 1px solid #1e2029;
+  }
+  .dist-num { color: #6b7280; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div id="header">
+  <h1>Trondheim Circuit</h1>
+  <span>7 – 15 Settembre 2026 · BLQ→TRD / TRD→VCE · €255</span>
+</div>
+
+<div id="map"></div>
+
+<div id="sidebar">
+  <div class="legend">
+    <div class="legend-title">Legenda</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#4f9eff"></div> Tappa principale</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#4ade80"></div> Natura / fiordi</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#f59e0b"></div> Architettura speciale</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#c084fc"></div> Food / relax</div>
+  </div>
+
+  <div class="day-block active" data-idx="0">
+    <div class="day-label">7 Set · Arrivo</div>
+    <div class="day-place">Trondheim</div>
+    <div class="day-desc">Atterraggio BGY→TRD. Check-in. Sera a Nedre Elvehavn sul fiordo — ex cantiere riconvertito, birra artigianale, prime impressioni nordiche.</div>
+    <span class="tag tag-relax">Relax</span>
+    <span class="tag tag-arch">Architettura</span>
+  </div>
+
+  <div class="day-block" data-idx="1">
+    <div class="day-label">8-9 Set · 2 notti</div>
+    <div class="day-place">Trondheim</div>
+    <div class="day-desc">Rockheim (museo pop, involucro metallico brutalista). NTNU campus Gløshaugen. Cattedrale di Nidaros. Cena da Credo ★★ o Fagn ★. Bakklandet a piedi.</div>
+    <span class="tag tag-arch">Brutalist/Contemp.</span>
+    <span class="tag tag-food">Credo ★★</span>
+  </div>
+
+  <div class="day-block" data-idx="2">
+    <div class="day-label">10 Set · Transfer</div>
+    <div class="day-place">Romsdalen Valley</div>
+    <div class="day-desc">Auto da Trondheim (3h) lungo E6 poi E136. Valle selvaggia tra pareti rocciose verticali. Check-in Juvet Landscape Hotel (camere di vetro nel bosco) o Åndalsnes.</div>
+    <span class="tag tag-nature">Fiordi interni</span>
+    <span class="tag tag-arch">Juvet Hotel</span>
+  </div>
+
+  <div class="day-block" data-idx="3">
+    <div class="day-label">11 Set</div>
+    <div class="day-place">Trollstigen</div>
+    <div class="day-desc">Visitor center di Reiulf Ramstad Architects — passerelle in acciaio e pietra sulla cascata. Minimalismo brutale integrato nella montagna. Poi scendere ad Åndalsnes per pranzo.</div>
+    <span class="tag tag-arch">Iconico</span>
+    <span class="tag tag-nature">Cascata</span>
+  </div>
+
+  <div class="day-block" data-idx="4">
+    <div class="day-label">12 Set</div>
+    <div class="day-place">Geiranger Fjord</div>
+    <div class="day-desc">UNESCO. Traghetto Golden Route (Geiranger→Hellesylt, 1h). Cascate dei Sette Fratelli. Luce di settembre lunga e bassa, colori autunnali che iniziano. Meno folla del luglio.</div>
+    <span class="tag tag-nature">UNESCO · Fiordi</span>
+    <span class="tag tag-relax">Golden hour</span>
+  </div>
+
+  <div class="day-block" data-idx="5">
+    <div class="day-label">13 Set · Transfer</div>
+    <div class="day-place">Ålesund</div>
+    <div class="day-desc">Città Art Nouveau ricostruita dopo l'incendio del 1904. Vista panoramica da Aksla (418 gradini). Pesce freschissimo al mercato. Poi rientro a Trondheim (3.5h ferry+bus o auto).</div>
+    <span class="tag tag-arch">Art Nouveau</span>
+    <span class="tag tag-food">Mercato pesce</span>
+  </div>
+
+  <div class="day-block" data-idx="6">
+    <div class="day-label">14 Set · Ultima sera</div>
+    <div class="day-place">Trondheim</div>
+    <div class="day-desc">Giornata libera. Museo delle scienze NTNU, passeggiata sul Nidelva. Cena finale da Sellanraa o Baklandet Skydsstation. Shopping minimal (Norse Projects, Helly Hansen outlet).</div>
+    <span class="tag tag-relax">Slow day</span>
+    <span class="tag tag-food">Cena finale</span>
+  </div>
+
+  <div class="day-block" data-idx="7">
+    <div class="day-label">15 Set · Partenza</div>
+    <div class="day-place">TRD → VCE</div>
+    <div class="day-desc">Volo Trondheim→Venezia (open-jaw). KLM via Amsterdam. €111 ritorno. Rientro in Italia via Marco Polo.</div>
+    <span class="tag tag-arch">Open-jaw</span>
+  </div>
+
+  <div id="distance-bar">
+    Percorso in auto: ~<span class="dist-num">900 km</span> totali ·
+    Drive days: 3 · Noleggio consigliato <span class="dist-num">5 gg</span>
+  </div>
+</div>
+
+<script>
+const stops = [
+  {
+    name: "Trondheim",
+    lat: 63.4305, lng: 10.3951,
+    color: "#4f9eff",
+    day: "7-9 Set",
+    desc: "Base principale. Rockheim, NTNU campus, Credo ★★, Nedre Elvehavn.",
+    size: 14
+  },
+  {
+    name: "Romsdalen / Åndalsnes",
+    lat: 62.5667, lng: 7.6833,
+    color: "#4ade80",
+    day: "10-11 Set",
+    desc: "Valle selvaggia. Juvet Landscape Hotel. Pareti verticali di granito.",
+    size: 11
+  },
+  {
+    name: "Juvet Landscape Hotel",
+    lat: 62.3750, lng: 7.4200,
+    color: "#f59e0b",
+    day: "10 Set",
+    desc: "Camere di vetro nel bosco sul fiume Valldøla. Architettura minimale nel paesaggio.",
+    size: 9
+  },
+  {
+    name: "Trollstigen Visitor Center",
+    lat: 62.4594, lng: 7.6692,
+    color: "#f59e0b",
+    day: "11 Set",
+    desc: "Reiulf Ramstad Architects. Passerelle in acciaio e pietra sulla cascata. Brutalismo nel paesaggio.",
+    size: 11
+  },
+  {
+    name: "Geiranger Fjord",
+    lat: 62.1001, lng: 7.2048,
+    color: "#4ade80",
+    day: "12 Set",
+    desc: "UNESCO. Traghetto Golden Route. Cascate dei Sette Fratelli. Luce autunnale.",
+    size: 13
+  },
+  {
+    name: "Hellesylt",
+    lat: 62.0956, lng: 6.8667,
+    color: "#4ade80",
+    day: "12 Set",
+    desc: "Arrivo del traghetto Golden Route da Geiranger.",
+    size: 8
+  },
+  {
+    name: "Ålesund",
+    lat: 62.4722, lng: 6.1495,
+    color: "#c084fc",
+    day: "13 Set",
+    desc: "Art Nouveau. Vista da Aksla. Mercato del pesce fresco. Città ricostruita 1904.",
+    size: 12
+  }
+];
+
+// Route polyline coordinates (approximate driving path)
+const routeCoords = [
+  [63.4305, 10.3951],  // Trondheim
+  [62.9833, 9.5167],   // Oppdal area
+  [62.7500, 8.5500],   // Sunndalsøra
+  [62.5667, 7.6833],   // Åndalsnes
+  [62.3750, 7.4200],   // Juvet
+  [62.4594, 7.6692],   // Trollstigen
+  [62.1001, 7.2048],   // Geiranger
+  [62.0956, 6.8667],   // Hellesylt (ferry)
+  [62.4722, 6.1495],   // Ålesund
+  [62.6500, 7.2000],   // back via Molde area
+  [62.7333, 7.8833],   // back toward Åndalsnes
+  [62.9833, 9.5167],   // Oppdal
+  [63.4305, 10.3951],  // Trondheim
+];
+
+// Ferry route
+const ferryCoords = [
+  [62.1001, 7.2048],
+  [62.0956, 6.8667],
+];
+
+const map = L.map('map', {
+  center: [62.6, 8.2],
+  zoom: 8,
+  zoomControl: true,
+});
+
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+  attribution: '© OpenStreetMap © CARTO',
+  maxZoom: 18
+}).addTo(map);
+
+// Drive route
+L.polyline(routeCoords, {
+  color: '#4f9eff',
+  weight: 2.5,
+  opacity: 0.7,
+  dashArray: null,
+  lineJoin: 'round'
+}).addTo(map);
+
+// Ferry route
+L.polyline(ferryCoords, {
+  color: '#4ade80',
+  weight: 3,
+  opacity: 0.9,
+  dashArray: '6, 8',
+}).addTo(map).bindTooltip('Traghetto Golden Route (~1h)', {
+  permanent: false, className: 'leaflet-tooltip'
+});
+
+// Markers
+const markers = [];
+stops.forEach((s, i) => {
+  const marker = L.circleMarker([s.lat, s.lng], {
+    radius: s.size / 2 + 4,
+    fillColor: s.color,
+    color: '#0f1117',
+    weight: 2,
+    opacity: 1,
+    fillOpacity: 0.9
+  }).addTo(map);
+
+  const popup = L.popup({ maxWidth: 220, minWidth: 180 }).setContent(`
+    <div class="popup-day">${s.day}</div>
+    <div class="popup-title">${s.name}</div>
+    <div class="popup-body">${s.desc}</div>
+  `);
+  marker.bindPopup(popup);
+  markers.push(marker);
+});
+
+// Airport markers
+const airports = [
+  { name: "TRD · Trondheim Værnes", lat: 63.4578, lng: 10.9239, label: "✈ TRD" },
+  { name: "VCE · Venezia Marco Polo", lat: 45.5053, lng: 12.3519, label: "✈ VCE (ritorno)" },
+];
+
+airports.forEach(a => {
+  L.marker([a.lat, a.lng], {
+    icon: L.divIcon({
+      html: `<div style="background:#1a1d27;border:1px solid #4f9eff;color:#4f9eff;padding:3px 7px;border-radius:4px;font-size:10px;font-weight:700;white-space:nowrap;letter-spacing:0.05em;">${a.label}</div>`,
+      className: '',
+      iconAnchor: [30, 10]
+    })
+  }).addTo(map).bindPopup(`<div class="popup-title">${a.name}</div>`);
+});
+
+// Sidebar interaction
+document.querySelectorAll('.day-block').forEach((block, idx) => {
+  block.addEventListener('click', () => {
+    document.querySelectorAll('.day-block').forEach(b => b.classList.remove('active'));
+    block.classList.add('active');
+    if (markers[idx]) {
+      map.setView([stops[idx].lat, stops[idx].lng], 10, { animate: true });
+      markers[idx].openPopup();
+    }
+  });
+});
+
+// Legend labels on map
+const legendControl = L.control({ position: 'bottomleft' });
+legendControl.onAdd = () => {
+  const div = L.DomUtil.create('div');
+  div.innerHTML = `
+    <div style="background:rgba(15,17,23,0.9);border:1px solid #2a2d36;padding:10px 14px;border-radius:6px;font-size:11px;color:#9ca3af;line-height:1.8;">
+      <div style="color:#6b7280;font-size:9px;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px;">Percorso</div>
+      <div><span style="color:#4f9eff;">——</span> Strada (auto)</div>
+      <div><span style="color:#4ade80;">- - -</span> Traghetto</div>
+    </div>`;
+  return div;
+};
+legendControl.addTo(map);
+</script>
+</body>
+</html>
