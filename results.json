@@ -1,5 +1,7 @@
 {
   "top40": [],
   "total_destinations": 0,
-  "note": "Open-jaw optimized. Outbound 2026-09-07, return 2026-09-15. USD->EUR x0.92."
+  "out_routes_found": 67,
+  "ret_routes_found": 0,
+  "note": "Open-jaw. Outbound 2026-09-07, return 2026-09-15. USD->EUR x0.92."
 }
