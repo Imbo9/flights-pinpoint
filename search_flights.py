@@ -65,18 +65,24 @@ DESTINATIONS = [
     "TNR", "RUN", "MRU",
 ]
 
-DATE = "2026-09-07"
+DEP_DATE = "2026-09-07"
+RET_DATE = "2026-09-15"
 
 def search(origin, dest):
     try:
         r = subprocess.run(
-            ["fli", "flights", origin, dest, DATE, "--format", "json", "--sort", "CHEAPEST"],
+            [
+                "fli", "flights", origin, dest, DEP_DATE,
+                "--return", RET_DATE,
+                "--format", "json",
+                "--sort", "CHEAPEST",
+                "--currency", "EUR",
+            ],
             capture_output=True, text=True, timeout=10
         )
         if r.returncode != 0 or not r.stdout.strip():
             return None
         data = json.loads(r.stdout)
-        # fli returns a dict: {"success": true, "flights": [...], ...}
         if not (isinstance(data, dict) and data.get("success") and data.get("flights")):
             return None
         flights = data["flights"]
@@ -85,6 +91,9 @@ def search(origin, dest):
         if not p:
             return None
         legs = cheapest.get("legs", [])
+        # For round-trips legs contains both outbound and return segments
+        outbound_legs = [l for l in legs if l.get("departure_airport", {}).get("code") == origin or
+                         legs.index(l) < len(legs) // 2] if legs else []
         airlines = list({
             lg.get("airline", {}).get("name", "")
             for lg in legs if lg.get("airline")
@@ -93,7 +102,7 @@ def search(origin, dest):
             "origin": origin,
             "destination": dest,
             "price": p,
-            "currency": cheapest.get("currency", "USD"),
+            "currency": cheapest.get("currency", "EUR"),
             "duration_min": cheapest.get("duration"),
             "stops": cheapest.get("stops", 0),
             "airlines": airlines,
@@ -105,7 +114,7 @@ def search(origin, dest):
     return None
 
 pairs = [(o, d) for o in ORIGINS for d in DESTINATIONS]
-print(f"Searching {len(pairs)} pairs ({len(ORIGINS)} origins x {len(DESTINATIONS)} destinations)...")
+print(f"Searching {len(pairs)} pairs round-trip ({DEP_DATE} -> {RET_DATE}), EUR...")
 
 results = []
 with ThreadPoolExecutor(max_workers=50) as ex:
@@ -122,13 +131,13 @@ for r in sorted(results, key=lambda x: x["price"]):
     if key not in seen:
         seen[key] = r
 
-top20 = sorted(seen.values(), key=lambda x: x["price"])[:20]
+top40 = sorted(seen.values(), key=lambda x: x["price"])[:40]
 
 with open("results.json", "w") as f:
-    json.dump({"top20": top20, "total_routes": len(seen)}, f, indent=2)
+    json.dump({"top40": top40, "total_routes": len(seen)}, f, indent=2)
 
 print(f"\nDone. {len(seen)} routes found.")
-if top20:
-    print(f"Cheapest: {top20[0]['origin']}->{top20[0]['destination']} {top20[0]['currency']}{top20[0]['price']}")
+if top40:
+    print(f"Cheapest: {top40[0]['origin']}->{top40[0]['destination']} {top40[0]['currency']}{top40[0]['price']}")
 else:
     print("No results found.")
