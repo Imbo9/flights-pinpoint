@@ -1,1 +1,64 @@
-{"done": true}
+{
+  "no_currency": {
+    "returncode": 0,
+    "stderr": "",
+    "top_level_keys": [
+      "success",
+      "data_source",
+      "search_type",
+      "trip_type",
+      "query",
+      "count",
+      "flights"
+    ],
+    "flight_count": 14,
+    "first_flight_keys": [
+      "price",
+      "currency",
+      "duration",
+      "stops",
+      "outbound",
+      "return"
+    ],
+    "price": 49.0,
+    "currency": "USD",
+    "stops": 0,
+    "duration": 215,
+    "legs_count": 0,
+    "other_keys": {
+      "outbound": "{'duration': 105, 'stops': 0, 'legs': [{'departure_airport': {'code': 'BGY', 'name': 'Bergamo / Orio Al Serio Airport'}, 'arrival_airport': {'code': 'TIA', 'name': 'Tirana International Airport Mother Teresa'}, 'departure_time': '2026-09-07T19:40:00', 'arrival_time': '2026-09-07T21:25:00', 'duration",
+      "return": "{'duration': 110, 'stops': 0, 'legs': [{'departure_airport': {'code': 'TIA', 'name': 'Tirana International Airport Mother Teresa'}, 'arrival_airport': {'code': 'BGY', 'name': 'Bergamo / Orio Al Serio Airport'}, 'departure_time': '2026-09-15T22:55:00', 'arrival_time': '2026-09-16T00:45:00', 'duration"
+    }
+  },
+  "with_EUR": {
+    "returncode": 0,
+    "stderr": "",
+    "top_level_keys": [
+      "success",
+      "data_source",
+      "search_type",
+      "trip_type",
+      "query",
+      "count",
+      "flights"
+    ],
+    "flight_count": 14,
+    "first_flight_keys": [
+      "price",
+      "currency",
+      "duration",
+      "stops",
+      "outbound",
+      "return"
+    ],
+    "price": 49.0,
+    "currency": "USD",
+    "stops": 0,
+    "duration": 215,
+    "legs_count": 0,
+    "other_keys": {
+      "outbound": "{'duration': 105, 'stops': 0, 'legs': [{'departure_airport': {'code': 'BGY', 'name': 'Bergamo / Orio Al Serio Airport'}, 'arrival_airport': {'code': 'TIA', 'name': 'Tirana International Airport Mother Teresa'}, 'departure_time': '2026-09-07T19:40:00', 'arrival_time': '2026-09-07T21:25:00', 'duration",
+      "return": "{'duration': 110, 'stops': 0, 'legs': [{'departure_airport': {'code': 'TIA', 'name': 'Tirana International Airport Mother Teresa'}, 'arrival_airport': {'code': 'BGY', 'name': 'Bergamo / Orio Al Serio Airport'}, 'departure_time': '2026-09-15T22:55:00', 'arrival_time': '2026-09-16T00:45:00', 'duration"
+    }
+  }
+}
