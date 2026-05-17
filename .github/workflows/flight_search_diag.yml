@@ -1,0 +1,28 @@
+name: Flight Search DIAG
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/flight-search-automation-gmsw9
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install flights
+      - run: python search_flights_diag.py
+      - env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          BRANCH: claude/flight-search-automation-gmsw9
+          RESULTS_FILE: results_diag.json
+        run: python3 upload_results.py
