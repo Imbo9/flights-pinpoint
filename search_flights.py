@@ -78,7 +78,7 @@ DESTINATIONS = [
     "KAJ",  # Kajaani
     "MHQ",  # Mariehamn (Aland Islands)
 
-    # --- Denmark + Greenland ---
+    # --- Denmark ---
     "CPH",
 
     # --- Baltics ---
@@ -218,7 +218,7 @@ def search(origin, dest):
     try:
         r = subprocess.run(
             ["fli", "flights", origin, dest, DATE, "--format", "json", "--sort", "CHEAPEST"],
-            capture_output=True, text=True, timeout=25
+            capture_output=True, text=True, timeout=10
         )
         if r.returncode == 0 and r.stdout.strip():
             data = json.loads(r.stdout)
