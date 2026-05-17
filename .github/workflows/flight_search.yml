@@ -1,0 +1,33 @@
+name: Flight Search
+
+on:
+  workflow_dispatch:
+
+jobs:
+  search:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: claude/flight-search-automation-gmsw9
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install fli
+        run: pip install flights
+
+      - name: Run flight search
+        run: python search_flights.py
+
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        with:
+          name: flight-results
+          path: results.json
+          if-no-files-found: warn
