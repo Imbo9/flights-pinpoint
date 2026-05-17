@@ -1,6 +1,9 @@
 import subprocess, json
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
+# Approximate USD->EUR rate (May 2026)
+USD_TO_EUR = 0.92
+
 ORIGINS = [
     "BGY", "MXP", "LIN", "VCE", "TSF", "BLQ",
     "VRN", "TRN", "GOA", "TRS", "PMF", "VBS", "BZO", "RMI",
@@ -68,17 +71,31 @@ DESTINATIONS = [
 DEP_DATE = "2026-09-07"
 RET_DATE = "2026-09-15"
 
+def get_legs_info(flight):
+    """Extract airline, departure and arrival from outbound/return structure."""
+    outbound = flight.get("outbound", {})
+    ret = flight.get("return", {})
+    out_legs = outbound.get("legs", [])
+    ret_legs = ret.get("legs", [])
+    airlines = list({
+        lg.get("airline", {}).get("name", "")
+        for legs in (out_legs, ret_legs)
+        for lg in legs
+        if lg.get("airline")
+    })
+    departure = out_legs[0].get("departure_time", "") if out_legs else ""
+    arrival = ret_legs[-1].get("arrival_time", "") if ret_legs else ""
+    out_stops = outbound.get("stops", 0)
+    ret_stops = ret.get("stops", 0)
+    return airlines, departure, arrival, out_stops, ret_stops
+
 def search(origin, dest):
     try:
         r = subprocess.run(
-            [
-                "fli", "flights", origin, dest, DEP_DATE,
-                "--return", RET_DATE,
-                "--format", "json",
-                "--sort", "CHEAPEST",
-                "--currency", "EUR",
-            ],
-            capture_output=True, text=True, timeout=10
+            ["fli", "flights", origin, dest, DEP_DATE,
+             "--return", RET_DATE,
+             "--format", "json", "--sort", "CHEAPEST"],
+            capture_output=True, text=True, timeout=12
         )
         if r.returncode != 0 or not r.stdout.strip():
             return None
@@ -87,34 +104,29 @@ def search(origin, dest):
             return None
         flights = data["flights"]
         cheapest = min(flights, key=lambda x: x.get("price") or 999999)
-        p = cheapest.get("price")
-        if not p:
+        p_usd = cheapest.get("price")
+        if not p_usd:
             return None
-        legs = cheapest.get("legs", [])
-        # For round-trips legs contains both outbound and return segments
-        outbound_legs = [l for l in legs if l.get("departure_airport", {}).get("code") == origin or
-                         legs.index(l) < len(legs) // 2] if legs else []
-        airlines = list({
-            lg.get("airline", {}).get("name", "")
-            for lg in legs if lg.get("airline")
-        })
+        p_eur = round(p_usd * USD_TO_EUR, 0)
+        airlines, departure, arrival, out_stops, ret_stops = get_legs_info(cheapest)
         return {
             "origin": origin,
             "destination": dest,
-            "price": p,
-            "currency": cheapest.get("currency", "EUR"),
+            "price_eur": p_eur,
+            "price_usd": p_usd,
             "duration_min": cheapest.get("duration"),
-            "stops": cheapest.get("stops", 0),
+            "outbound_stops": out_stops,
+            "return_stops": ret_stops,
             "airlines": airlines,
-            "departure": legs[0].get("departure_time", "") if legs else "",
-            "arrival": legs[-1].get("arrival_time", "") if legs else "",
+            "outbound_dep": departure,
+            "return_arr": arrival,
         }
     except Exception as e:
         print(f"Error {origin}->{dest}: {e}")
     return None
 
 pairs = [(o, d) for o in ORIGINS for d in DESTINATIONS]
-print(f"Searching {len(pairs)} pairs round-trip ({DEP_DATE} -> {RET_DATE}), EUR...")
+print(f"Searching {len(pairs)} round-trip pairs ({DEP_DATE} -> {RET_DATE}), converting to EUR...")
 
 results = []
 with ThreadPoolExecutor(max_workers=50) as ex:
@@ -123,21 +135,22 @@ with ThreadPoolExecutor(max_workers=50) as ex:
         res = f.result()
         if res:
             results.append(res)
-            print(f"  Found: {res['origin']}->{res['destination']} {res['currency']}{res['price']}")
+            print(f"  Found: {res['origin']}->{res['destination']} EUR{res['price_eur']}")
 
 seen = {}
-for r in sorted(results, key=lambda x: x["price"]):
+for r in sorted(results, key=lambda x: x["price_eur"]):
     key = (r["origin"], r["destination"])
     if key not in seen:
         seen[key] = r
 
-top40 = sorted(seen.values(), key=lambda x: x["price"])[:40]
+top40 = sorted(seen.values(), key=lambda x: x["price_eur"])[:40]
 
 with open("results.json", "w") as f:
-    json.dump({"top40": top40, "total_routes": len(seen)}, f, indent=2)
+    json.dump({"top40": top40, "total_routes": len(seen),
+               "note": "Round-trip prices. USD converted to EUR at 0.92 rate."}, f, indent=2)
 
 print(f"\nDone. {len(seen)} routes found.")
 if top40:
-    print(f"Cheapest: {top40[0]['origin']}->{top40[0]['destination']} {top40[0]['currency']}{top40[0]['price']}")
+    print(f"Cheapest: {top40[0]['origin']}->{top40[0]['destination']} EUR{top40[0]['price_eur']}")
 else:
     print("No results found.")
