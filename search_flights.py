@@ -18,104 +18,200 @@ ORIGINS = [
     "BZO",  # Bolzano
     "RMI",  # Rimini
 ]
+
 DESTINATIONS = [
-    # Iceland & Faroe
-    "KEF", "FAE",
+    # --- Iceland ---
+    "KEF",  # Reykjavik (main)
+    "AEY",  # Akureyri (north Iceland)
+    "EGS",  # Egilsstadir (east Iceland)
+    "IFJ",  # Isafjordur (Westfjords, very remote)
 
-    # Norway (mainland + extreme north)
-    "OSL", "BGO", "TRD", "TOS", "SVG", "BOO", "EVE", "LYR",
-    "KKN",  # Kirkenes (extreme north, Norwegian-Russian border)
+    # --- Faroe Islands ---
+    "FAE",
+
+    # --- Norway mainland ---
+    "OSL", "BGO", "TRD", "SVG", "HAU",
+    "BOO",  # Bodo (gateway to Lofoten)
+    "EVE",  # Harstad/Narvik
+    "TOS",  # Tromso
+    "ALF",  # Alta (Northern Lights)
     "LKL",  # Lakselv (Finnmark)
-    "ALF",  # Alta (gateway to Northern Lights)
-    "HAU",  # Haugesund
+    "KKN",  # Kirkenes (extreme north, Russian border)
+    "HFT",  # Hammerfest
+    "VDS",  # Vardo (easternmost Norway)
+    "MQN",  # Mo i Rana
+    "RRS",  # Roros (UNESCO mining town)
+    "SOG",  # Sogndal (Sognefjord)
+    # --- Lofoten & Vesteralen ---
+    "LKN",  # Leknes (Lofoten Islands)
+    "SVJ",  # Svolvaer (Lofoten)
+    "ANX",  # Andenes (whale watching)
+    # --- Svalbard ---
+    "LYR",  # Longyearbyen (Svalbard)
 
-    # Sweden
-    "ARN", "GOT", "UME", "LLA", "KRN",
+    # --- Greenland ---
+    "GOH",  # Nuuk
+    "SFJ",  # Kangerlussuaq
+    "JAV",  # Ilulissat (iceberg UNESCO)
+    "UAK",  # Narsarsuaq (south Greenland)
+    "CNP",  # Neerlerit Inaat (east Greenland)
+
+    # --- Sweden ---
+    "ARN", "GOT",
+    "UME",  # Umea
     "SDL",  # Sundsvall
-    "OSD",  # Åre/Östersund (Swedish mountain wilderness)
+    "OSD",  # Are/Ostersund (mountain wilderness)
+    "LLA",  # Lulea
+    "KRN",  # Kiruna (Swedish Lapland)
+    "GEV",  # Gallivare (Lapland)
+    "HMV",  # Hemavan (mountain, bear country)
+    "VBY",  # Visby (Gotland island)
 
-    # Finland
-    "HEL", "OUL", "RVN", "KAO", "IVL",
-    "KTT",  # Kittilä (Lapland ski & wilderness)
-    "ENF",  # Enontekiö (northernmost Finland)
+    # --- Finland ---
+    "HEL", "OUL",
+    "RVN",  # Rovaniemi (Santa/Lapland)
+    "KAO",  # Kuusamo (Oulanka NP)
+    "IVL",  # Ivalo (northernmost Finland)
+    "KTT",  # Kittila (Lapland ski & wilderness)
+    "ENF",  # Enontekio (northernmost Finland)
+    "JOE",  # Joensuu (Karelia)
+    "KAJ",  # Kajaani
+    "MHQ",  # Mariehamn (Aland Islands)
 
-    # Denmark + Greenland
+    # --- Denmark + Greenland ---
     "CPH",
-    "GOH",  # Nuuk, Greenland
-    "SFJ",  # Kangerlussuaq, Greenland
-    "JAV",  # Ilulissat (icefjord UNESCO)
 
-    # Baltics (NEW)
-    "TLL",  # Tallinn, Estonia
-    "RIX",  # Riga, Latvia
-    "VNO",  # Vilnius, Lithuania
+    # --- Baltics ---
+    "TLL",  # Tallinn (Estonia)
+    "RIX",  # Riga (Latvia)
+    "VNO",  # Vilnius (Lithuania)
 
-    # Scotland & remote British Isles
+    # --- Scotland & remote British Isles ---
     "EDI", "GLA", "INV",
-    "KOI",  # Kirkwall, Orkney Islands
-    "LSI",  # Lerwick/Sumburgh, Shetland Islands
-    "SYY",  # Stornoway, Outer Hebrides
-    "SNN",  # Shannon, Ireland
+    "WIC",  # Wick (Caithness, far north Scotland)
+    "KOI",  # Kirkwall (Orkney Islands)
+    "LSI",  # Lerwick/Sumburgh (Shetland Islands)
+    "SYY",  # Stornoway (Outer Hebrides)
+    "BEB",  # Benbecula (Outer Hebrides)
+    "ILY",  # Islay (whisky island)
+    "TRE",  # Tiree (remote Atlantic island)
+    "SNN",  # Shannon (Ireland)
+    "CFN",  # Donegal (Wild Atlantic Way)
 
-    # Atlantic islands
+    # --- Atlantic Islands ---
     "FNC", "PDL", "TER", "HOR", "SMA",
 
-    # Morocco
+    # --- Morocco ---
     "CMN", "RAK", "FEZ", "TNG", "AGA",
 
-    # China
-    "PEK", "PVG", "CAN", "CTU", "KMG", "URC",
+    # --- Turkey (nature & remote) ---
+    "IST",  # Istanbul
+    "TZX",  # Trabzon (Black Sea, Kackar mountains)
+    "VAN",  # Van (Lake Van, east Turkey)
+    "ERZ",  # Erzurum (east Anatolia)
 
-    # Japan
-    "NRT", "HND", "KIX", "CTS", "FUK",
+    # --- China ---
+    "PEK", "PVG", "CAN", "CTU",
+    "KMG",  # Kunming (Yunnan gateway)
+    "LJG",  # Lijiang (Yunnan, Jade Dragon Snow Mountain)
+    "URC",  # Urumqi (Xinjiang/Silk Road)
+    "XNN",  # Xining (Qinghai, Tibetan plateau)
+    "LXA",  # Lhasa (Tibet)
 
-    # Central Asia & Caucasus
-    "FRU",  # Bishkek, Kyrgyzstan
-    "OSS",  # Osh, Kyrgyzstan (gateway to Pamir/southern Kyrgyzstan)
-    "TAS",  # Tashkent, Uzbekistan
-    "SKD",  # Samarkand, Uzbekistan
-    "DYU",  # Dushanbe, Tajikistan
-    "ALA",  # Almaty, Kazakhstan
-    "ASB",  # Ashgabat, Turkmenistan
-    "GYD",  # Baku, Azerbaijan
-    "EVN",  # Yerevan, Armenia
-    "TBS",  # Tbilisi, Georgia
+    # --- Japan ---
+    "NRT", "HND", "KIX",
+    "CTS",  # Sapporo (Hokkaido)
+    "FUK",  # Fukuoka
+    "AKJ",  # Asahikawa (Hokkaido, Daisetsuzan NP)
+    "KUH",  # Kushiro (Hokkaido, Akan NP, cranes)
+    "WKJ",  # Wakkanai (northernmost Japan)
+    "ISG",  # Ishigaki (Okinawa chain, coral reefs)
 
-    # Nepal, Bhutan, Mongolia
+    # --- Central Asia & Caucasus ---
+    "FRU",  # Bishkek (Kyrgyzstan)
+    "OSS",  # Osh (southern Kyrgyzstan, Pamir gateway)
+    "TAS",  # Tashkent (Uzbekistan)
+    "SKD",  # Samarkand (Silk Road)
+    "UGC",  # Urgench (gateway to Khiva/Khorezm)
+    "NCU",  # Nukus (Karakalpakstan, Aral Sea)
+    "DYU",  # Dushanbe (Tajikistan)
+    "LEN",  # Khujand (northern Tajikistan)
+    "ALA",  # Almaty (Kazakhstan)
+    "ASB",  # Ashgabat (Turkmenistan)
+    "GYD",  # Baku (Azerbaijan)
+    "EVN",  # Yerevan (Armenia)
+    "LWN",  # Gyumri (Armenia)
+    "TBS",  # Tbilisi (Georgia)
+    "KUT",  # Kutaisi (Georgia, Ryanair hub)
+    "BUS",  # Batumi (Georgia, Black Sea)
+
+    # --- India (Himalayan / remote) ---
+    "IXL",  # Leh (Ladakh, world's highest airport)
+    "SXR",  # Srinagar (Kashmir)
+
+    # --- Nepal, Bhutan, Mongolia ---
     "KTM", "PBH", "ULN",
 
-    # South & Southeast Asia
-    "CMB",  # Colombo, Sri Lanka
-    "RGN",  # Yangon, Myanmar
-    "DPS",  # Bali, Indonesia
+    # --- South & Southeast Asia ---
+    "CMB",  # Colombo (Sri Lanka)
+    "RGN",  # Yangon (Myanmar)
+    "DPS",  # Bali (Indonesia)
+    "MDC",  # Manado (North Sulawesi, diving)
+    "BPN",  # Balikpapan (Borneo, orangutans)
+    "REP",  # Siem Reap (Cambodia, Angkor Wat)
+    "LPQ",  # Luang Prabang (Laos)
 
-    # Patagonia & South America wild
-    "USH", "PUQ", "PMC",
-    "CUZ",  # Cusco, Peru (Machu Picchu, Andes)
-    "LPB",  # La Paz, Bolivia (world's highest capital)
+    # --- Patagonia & South America wild ---
+    "USH",  # Ushuaia (southernmost city)
+    "FTE",  # El Calafate (Perito Moreno glacier)
+    "BRC",  # Bariloche (Argentine lake district)
+    "PUQ",  # Punta Arenas (Chilean Patagonia)
+    "PMC",  # Puerto Montt (lakes & volcanoes)
+    "IQT",  # Iquitos (Amazon, Peru, no roads)
+    "CUZ",  # Cusco (Machu Picchu gateway)
+    "LPB",  # La Paz (Bolivia, highest capital)
 
-    # New Zealand
+    # --- New Zealand ---
     "AKL", "CHC", "ZQN",
+    "WLG",  # Wellington
+    "DUD",  # Dunedin (gateway to Fiordland)
+    "ROT",  # Rotorua (geothermal)
 
-    # Oceania
-    "HBA",  # Hobart, Tasmania (wilderness, Antarctic gateway)
+    # --- Australia remote ---
+    "HBA",  # Hobart (Tasmania wilderness)
 
-    # Canada & Alaska
-    "YVR", "YYC", "ANC",
-    "YXY",  # Whitehorse, Yukon (wilderness)
+    # --- Canada wilderness & Arctic ---
+    "YVR", "YYC",
+    "YXY",  # Whitehorse (Yukon)
+    "YZF",  # Yellowknife (Northwest Territories, Northern Lights)
+    "YFB",  # Iqaluit (Nunavut, Arctic)
 
-    # Balkans wild nature
+    # --- Alaska ---
+    "ANC",
+
+    # --- Balkans wild nature ---
     "TIA", "TGD", "SKP",
 
-    # East Africa
+    # --- East Africa ---
     "ADD", "NBO", "JRO", "EBB",
+    "ZNZ",  # Zanzibar
+    "MBA",  # Mombasa
+    "LAU",  # Lamu (Kenya island archipelago)
 
-    # Southern & Central Africa
-    "WDH",  # Windhoek, Namibia (Namib desert, Etosha)
-    "CPT",  # Cape Town, South Africa
-    "VFA",  # Victoria Falls, Zimbabwe
-    "KGL",  # Kigali, Rwanda (gorilla trekking gateway)
+    # --- Southern & Central Africa ---
+    "WDH",  # Windhoek (Namibia, Namib desert)
+    "CPT",  # Cape Town
+    "VFA",  # Victoria Falls (Zimbabwe)
+    "LVI",  # Livingstone (Zambia, Victoria Falls)
+    "MUB",  # Maun (Botswana, Okavango Delta)
+    "KGL",  # Kigali (Rwanda, gorilla trekking)
+
+    # --- Indian Ocean islands ---
+    "TNR",  # Antananarivo (Madagascar)
+    "RUN",  # Saint-Denis (Reunion)
+    "MRU",  # Mauritius
 ]
+
 DATE = "2026-09-07"
 
 def search(origin, dest):
@@ -149,9 +245,9 @@ def search(origin, dest):
 pairs = [(o, d) for o in ORIGINS for d in DESTINATIONS]
 results = []
 
-print(f"Searching {len(pairs)} origin-destination pairs ({len(ORIGINS)} origins x {len(DESTINATIONS)} destinations)...")
+print(f"Searching {len(pairs)} pairs ({len(ORIGINS)} origins x {len(DESTINATIONS)} destinations)...")
 
-with ThreadPoolExecutor(max_workers=30) as ex:
+with ThreadPoolExecutor(max_workers=50) as ex:
     futures = {ex.submit(search, o, d): (o, d) for o, d in pairs}
     for f in as_completed(futures):
         res = f.result()
