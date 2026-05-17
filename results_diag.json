@@ -1,64 +1,50 @@
 {
-  "no_currency": {
+  "BGY->OSL 2026-09-07": {
     "returncode": 0,
+    "stdout_len": 59508,
     "stderr": "",
-    "top_level_keys": [
-      "success",
-      "data_source",
-      "search_type",
-      "trip_type",
-      "query",
-      "count",
-      "flights"
-    ],
-    "flight_count": 14,
-    "first_flight_keys": [
-      "price",
-      "currency",
-      "duration",
-      "stops",
-      "outbound",
-      "return"
-    ],
-    "price": 49.0,
-    "currency": "USD",
-    "stops": 0,
-    "duration": 215,
-    "legs_count": 0,
-    "other_keys": {
-      "outbound": "{'duration': 105, 'stops': 0, 'legs': [{'departure_airport': {'code': 'BGY', 'name': 'Bergamo / Orio Al Serio Airport'}, 'arrival_airport': {'code': 'TIA', 'name': 'Tirana International Airport Mother Teresa'}, 'departure_time': '2026-09-07T19:40:00', 'arrival_time': '2026-09-07T21:25:00', 'duration",
-      "return": "{'duration': 110, 'stops': 0, 'legs': [{'departure_airport': {'code': 'TIA', 'name': 'Tirana International Airport Mother Teresa'}, 'arrival_airport': {'code': 'BGY', 'name': 'Bergamo / Orio Al Serio Airport'}, 'departure_time': '2026-09-15T22:55:00', 'arrival_time': '2026-09-16T00:45:00', 'duration"
-    }
+    "stdout_head": "{\n  \"success\": true,\n  \"data_source\": \"google_flights\",\n  \"search_type\": \"flights\",\n  \"trip_type\": \"ONE_WAY\",\n  \"query\": {\n    \"origin\": \"BGY\",\n    \"destination\": \"OSL\",\n    \"departure_date\": \"2026-09-07\",\n    \"return_date\": null,\n    \"departure_window\": null,\n    \"airlines\": null,\n    \"cabin_class\": \"ECONOMY\",\n    \"max_stops\": \"ANY\",\n    \"sort_by\": \"CHEAPEST\"\n  },\n  \"count\": 35,\n  \"flights\": [\n    {\n      \"duration\": 635,\n      \"stops\": 1,\n      \"legs\": [\n        {\n          \"departure_airport\": {\n            \"code\": \"BGY\",\n            \"name\": \"Bergamo / Orio Al Serio Airport\"\n          },\n  "
   },
-  "with_EUR": {
+  "OSL->BGY 2026-09-15": {
     "returncode": 0,
+    "stdout_len": 2756,
     "stderr": "",
-    "top_level_keys": [
-      "success",
-      "data_source",
-      "search_type",
-      "trip_type",
-      "query",
-      "count",
-      "flights"
-    ],
-    "flight_count": 14,
-    "first_flight_keys": [
-      "price",
-      "currency",
-      "duration",
-      "stops",
-      "outbound",
-      "return"
-    ],
-    "price": 49.0,
-    "currency": "USD",
-    "stops": 0,
-    "duration": 215,
-    "legs_count": 0,
-    "other_keys": {
-      "outbound": "{'duration': 105, 'stops': 0, 'legs': [{'departure_airport': {'code': 'BGY', 'name': 'Bergamo / Orio Al Serio Airport'}, 'arrival_airport': {'code': 'TIA', 'name': 'Tirana International Airport Mother Teresa'}, 'departure_time': '2026-09-07T19:40:00', 'arrival_time': '2026-09-07T21:25:00', 'duration",
-      "return": "{'duration': 110, 'stops': 0, 'legs': [{'departure_airport': {'code': 'TIA', 'name': 'Tirana International Airport Mother Teresa'}, 'arrival_airport': {'code': 'BGY', 'name': 'Bergamo / Orio Al Serio Airport'}, 'departure_time': '2026-09-15T22:55:00', 'arrival_time': '2026-09-16T00:45:00', 'duration"
-    }
+    "stdout_head": "{\n  \"success\": true,\n  \"data_source\": \"google_flights\",\n  \"search_type\": \"flights\",\n  \"trip_type\": \"ONE_WAY\",\n  \"query\": {\n    \"origin\": \"OSL\",\n    \"destination\": \"BGY\",\n    \"departure_date\": \"2026-09-15\",\n    \"return_date\": null,\n    \"departure_window\": null,\n    \"airlines\": null,\n    \"cabin_class\": \"ECONOMY\",\n    \"max_stops\": \"ANY\",\n    \"sort_by\": \"CHEAPEST\"\n  },\n  \"count\": 2,\n  \"flights\": [\n    {\n      \"duration\": 510,\n      \"stops\": 1,\n      \"legs\": [\n        {\n          \"departure_airport\": {\n            \"code\": \"OSL\",\n            \"name\": \"Oslo Gardermoen Airport\"\n          },\n          \""
+  },
+  "BGY->TIA 2026-09-07": {
+    "returncode": 0,
+    "stdout_len": 46073,
+    "stderr": "",
+    "stdout_head": "{\n  \"success\": true,\n  \"data_source\": \"google_flights\",\n  \"search_type\": \"flights\",\n  \"trip_type\": \"ONE_WAY\",\n  \"query\": {\n    \"origin\": \"BGY\",\n    \"destination\": \"TIA\",\n    \"departure_date\": \"2026-09-07\",\n    \"return_date\": null,\n    \"departure_window\": null,\n    \"airlines\": null,\n    \"cabin_class\": \"ECONOMY\",\n    \"max_stops\": \"ANY\",\n    \"sort_by\": \"CHEAPEST\"\n  },\n  \"count\": 30,\n  \"flights\": [\n    {\n      \"duration\": 105,\n      \"stops\": 0,\n      \"legs\": [\n        {\n          \"departure_airport\": {\n            \"code\": \"BGY\",\n            \"name\": \"Bergamo / Orio Al Serio Airport\"\n          },\n  "
+  },
+  "TIA->BGY 2026-09-15": {
+    "returncode": 0,
+    "stdout_len": 52971,
+    "stderr": "",
+    "stdout_head": "{\n  \"success\": true,\n  \"data_source\": \"google_flights\",\n  \"search_type\": \"flights\",\n  \"trip_type\": \"ONE_WAY\",\n  \"query\": {\n    \"origin\": \"TIA\",\n    \"destination\": \"BGY\",\n    \"departure_date\": \"2026-09-15\",\n    \"return_date\": null,\n    \"departure_window\": null,\n    \"airlines\": null,\n    \"cabin_class\": \"ECONOMY\",\n    \"max_stops\": \"ANY\",\n    \"sort_by\": \"CHEAPEST\"\n  },\n  \"count\": 33,\n  \"flights\": [\n    {\n      \"duration\": 110,\n      \"stops\": 0,\n      \"legs\": [\n        {\n          \"departure_airport\": {\n            \"code\": \"TIA\",\n            \"name\": \"Tirana International Airport Mother Teresa\"\n    "
+  },
+  "MXP->KEF 2026-09-07": {
+    "returncode": 0,
+    "stdout_len": 149394,
+    "stderr": "",
+    "stdout_head": "{\n  \"success\": true,\n  \"data_source\": \"google_flights\",\n  \"search_type\": \"flights\",\n  \"trip_type\": \"ONE_WAY\",\n  \"query\": {\n    \"origin\": \"MXP\",\n    \"destination\": \"KEF\",\n    \"departure_date\": \"2026-09-07\",\n    \"return_date\": null,\n    \"departure_window\": null,\n    \"airlines\": null,\n    \"cabin_class\": \"ECONOMY\",\n    \"max_stops\": \"ANY\",\n    \"sort_by\": \"CHEAPEST\"\n  },\n  \"count\": 101,\n  \"flights\": [\n    {\n      \"duration\": 265,\n      \"stops\": 0,\n      \"legs\": [\n        {\n          \"departure_airport\": {\n            \"code\": \"MXP\",\n            \"name\": \"Malpensa International Airport\"\n          },\n  "
+  },
+  "KEF->MXP 2026-09-15": {
+    "returncode": 0,
+    "stdout_len": 154495,
+    "stderr": "",
+    "stdout_head": "{\n  \"success\": true,\n  \"data_source\": \"google_flights\",\n  \"search_type\": \"flights\",\n  \"trip_type\": \"ONE_WAY\",\n  \"query\": {\n    \"origin\": \"KEF\",\n    \"destination\": \"MXP\",\n    \"departure_date\": \"2026-09-15\",\n    \"return_date\": null,\n    \"departure_window\": null,\n    \"airlines\": null,\n    \"cabin_class\": \"ECONOMY\",\n    \"max_stops\": \"ANY\",\n    \"sort_by\": \"CHEAPEST\"\n  },\n  \"count\": 102,\n  \"flights\": [\n    {\n      \"duration\": 255,\n      \"stops\": 0,\n      \"legs\": [\n        {\n          \"departure_airport\": {\n            \"code\": \"KEF\",\n            \"name\": \"Keflavik International Airport\"\n          },\n  "
+  },
+  "BGY->RVN 2026-09-07": {
+    "returncode": 0,
+    "stdout_len": 5433,
+    "stderr": "",
+    "stdout_head": "{\n  \"success\": true,\n  \"data_source\": \"google_flights\",\n  \"search_type\": \"flights\",\n  \"trip_type\": \"ONE_WAY\",\n  \"query\": {\n    \"origin\": \"BGY\",\n    \"destination\": \"RVN\",\n    \"departure_date\": \"2026-09-07\",\n    \"return_date\": null,\n    \"departure_window\": null,\n    \"airlines\": null,\n    \"cabin_class\": \"ECONOMY\",\n    \"max_stops\": \"ANY\",\n    \"sort_by\": \"CHEAPEST\"\n  },\n  \"count\": 3,\n  \"flights\": [\n    {\n      \"duration\": 220,\n      \"stops\": 0,\n      \"legs\": [\n        {\n          \"departure_airport\": {\n            \"code\": \"BGY\",\n            \"name\": \"Bergamo / Orio Al Serio Airport\"\n          },\n   "
+  },
+  "RVN->BGY 2026-09-15": {
+    "returncode": 0,
+    "stdout_len": 400,
+    "stderr": "",
+    "stdout_head": "{\n  \"success\": true,\n  \"data_source\": \"google_flights\",\n  \"search_type\": \"flights\",\n  \"trip_type\": \"ONE_WAY\",\n  \"query\": {\n    \"origin\": \"RVN\",\n    \"destination\": \"BGY\",\n    \"departure_date\": \"2026-09-15\",\n    \"return_date\": null,\n    \"departure_window\": null,\n    \"airlines\": null,\n    \"cabin_class\": \"ECONOMY\",\n    \"max_stops\": \"ANY\",\n    \"sort_by\": \"CHEAPEST\"\n  },\n  \"count\": 0,\n  \"flights\": []\n}\n"
   }
 }
