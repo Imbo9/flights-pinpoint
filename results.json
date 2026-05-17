@@ -1,7 +1,592 @@
 {
-  "top40": [],
-  "total_destinations": 0,
-  "out_routes_found": 67,
-  "ret_routes_found": 0,
-  "note": "Open-jaw. Outbound 2026-09-07, return 2026-09-15. USD->EUR x0.92."
+  "top40": [
+    {
+      "destination": "RAK",
+      "origin_out": "BLQ",
+      "origin_ret": "BLQ",
+      "open_jaw": false,
+      "total_eur": 220.0,
+      "outbound": {
+        "from": "BLQ",
+        "to": "RAK",
+        "price_eur": 92.0,
+        "duration_min": 225,
+        "stops": 0,
+        "airlines": [
+          "TUIfly Belgium"
+        ],
+        "departure": "2026-09-07T20:50:00",
+        "arrival": "2026-09-07T23:35:00"
+      },
+      "return": {
+        "from": "RAK",
+        "to": "BLQ",
+        "price_eur": 128.0,
+        "duration_min": 590,
+        "stops": 1,
+        "airlines": [
+          "Vueling"
+        ],
+        "departure": "2026-09-15T21:05:00",
+        "arrival": "2026-09-16T07:55:00"
+      }
+    },
+    {
+      "destination": "TRD",
+      "origin_out": "BLQ",
+      "origin_ret": "VCE",
+      "open_jaw": true,
+      "total_eur": 255.0,
+      "outbound": {
+        "from": "BLQ",
+        "to": "TRD",
+        "price_eur": 144.0,
+        "duration_min": 635,
+        "stops": 1,
+        "airlines": [
+          "KLM"
+        ],
+        "departure": "2026-09-07T06:00:00",
+        "arrival": "2026-09-07T16:35:00"
+      },
+      "return": {
+        "from": "TRD",
+        "to": "VCE",
+        "price_eur": 111.0,
+        "duration_min": 310,
+        "stops": 1,
+        "airlines": [
+          "KLM"
+        ],
+        "departure": "2026-09-15T17:10:00",
+        "arrival": "2026-09-15T22:20:00"
+      }
+    },
+    {
+      "destination": "RIX",
+      "origin_out": "BGY",
+      "origin_ret": "GOA",
+      "open_jaw": true,
+      "total_eur": 262.0,
+      "outbound": {
+        "from": "BGY",
+        "to": "RIX",
+        "price_eur": 94.0,
+        "duration_min": 155,
+        "stops": 0,
+        "airlines": [
+          "Ryanair"
+        ],
+        "departure": "2026-09-07T16:55:00",
+        "arrival": "2026-09-07T20:30:00"
+      },
+      "return": {
+        "from": "RIX",
+        "to": "GOA",
+        "price_eur": 168.0,
+        "duration_min": 370,
+        "stops": 1,
+        "airlines": [
+          "airBaltic",
+          "Lufthansa Cargo"
+        ],
+        "departure": "2026-09-15T18:10:00",
+        "arrival": "2026-09-15T23:20:00"
+      }
+    },
+    {
+      "destination": "EDI",
+      "origin_out": "RMI",
+      "origin_ret": "VCE",
+      "open_jaw": true,
+      "total_eur": 338.0,
+      "outbound": {
+        "from": "RMI",
+        "to": "EDI",
+        "price_eur": 224.0,
+        "duration_min": 810,
+        "stops": 1,
+        "airlines": [
+          "British Airways"
+        ],
+        "departure": "2026-09-07T19:55:00",
+        "arrival": "2026-09-08T08:25:00"
+      },
+      "return": {
+        "from": "EDI",
+        "to": "VCE",
+        "price_eur": 114.0,
+        "duration_min": 160,
+        "stops": 0,
+        "airlines": [
+          "Ryanair"
+        ],
+        "departure": "2026-09-15T05:45:00",
+        "arrival": "2026-09-15T09:25:00"
+      }
+    },
+    {
+      "destination": "GOT",
+      "origin_out": "TRS",
+      "origin_ret": "TRN",
+      "open_jaw": true,
+      "total_eur": 352.0,
+      "outbound": {
+        "from": "TRS",
+        "to": "GOT",
+        "price_eur": 204.0,
+        "duration_min": 245,
+        "stops": 1,
+        "airlines": [
+          "Lufthansa Cargo",
+          "Air Dolomiti"
+        ],
+        "departure": "2026-09-07T06:10:00",
+        "arrival": "2026-09-07T10:15:00"
+      },
+      "return": {
+        "from": "GOT",
+        "to": "TRN",
+        "price_eur": 148.0,
+        "duration_min": 255,
+        "stops": 1,
+        "airlines": [
+          "KLM"
+        ],
+        "departure": "2026-09-15T18:25:00",
+        "arrival": "2026-09-15T22:40:00"
+      }
+    },
+    {
+      "destination": "TBS",
+      "origin_out": "TRN",
+      "origin_ret": "LIN",
+      "open_jaw": true,
+      "total_eur": 551.0,
+      "outbound": {
+        "from": "TRN",
+        "to": "TBS",
+        "price_eur": 179.0,
+        "duration_min": 1180,
+        "stops": 1,
+        "airlines": [
+          "Lufthansa Cargo"
+        ],
+        "departure": "2026-09-07T06:15:00",
+        "arrival": "2026-09-08T03:55:00"
+      },
+      "return": {
+        "from": "TBS",
+        "to": "LIN",
+        "price_eur": 372.0,
+        "duration_min": 925,
+        "stops": 3,
+        "airlines": [
+          "Lufthansa Cargo"
+        ],
+        "departure": "2026-09-15T05:00:00",
+        "arrival": "2026-09-15T18:25:00"
+      }
+    },
+    {
+      "destination": "GYD",
+      "origin_out": "VRN",
+      "origin_ret": "VCE",
+      "open_jaw": true,
+      "total_eur": 659.0,
+      "outbound": {
+        "from": "VRN",
+        "to": "GYD",
+        "price_eur": 374.0,
+        "duration_min": 925,
+        "stops": 2,
+        "airlines": [
+          "Lufthansa Cargo",
+          "Air Dolomiti"
+        ],
+        "departure": "2026-09-07T06:30:00",
+        "arrival": "2026-09-07T23:55:00"
+      },
+      "return": {
+        "from": "GYD",
+        "to": "VCE",
+        "price_eur": 285.0,
+        "duration_min": 800,
+        "stops": 1,
+        "airlines": [
+          "Lufthansa Cargo"
+        ],
+        "departure": "2026-09-15T02:20:00",
+        "arrival": "2026-09-15T13:40:00"
+      }
+    },
+    {
+      "destination": "TZX",
+      "origin_out": "MXP",
+      "origin_ret": "VRN",
+      "open_jaw": true,
+      "total_eur": 884.0,
+      "outbound": {
+        "from": "MXP",
+        "to": "TZX",
+        "price_eur": 230.0,
+        "duration_min": 415,
+        "stops": 1,
+        "airlines": [
+          "SunExpress"
+        ],
+        "departure": "2026-09-07T14:40:00",
+        "arrival": "2026-09-07T22:35:00"
+      },
+      "return": {
+        "from": "TZX",
+        "to": "VRN",
+        "price_eur": 654.0,
+        "duration_min": 2030,
+        "stops": 2,
+        "airlines": [
+          "Royal Air Maroc",
+          "Turkish Airlines"
+        ],
+        "departure": "2026-09-15T08:30:00",
+        "arrival": "2026-09-16T17:20:00"
+      }
+    },
+    {
+      "destination": "EGS",
+      "origin_out": "MXP",
+      "origin_ret": "MXP",
+      "open_jaw": false,
+      "total_eur": 923.0,
+      "outbound": {
+        "from": "MXP",
+        "to": "EGS",
+        "price_eur": 446.0,
+        "duration_min": 1095,
+        "stops": 1,
+        "airlines": [
+          "Icelandair"
+        ],
+        "departure": "2026-09-07T16:20:00",
+        "arrival": "2026-09-08T08:35:00"
+      },
+      "return": {
+        "from": "EGS",
+        "to": "MXP",
+        "price_eur": 477.0,
+        "duration_min": 1225,
+        "stops": 2,
+        "airlines": [
+          "Icelandair",
+          "Finnair"
+        ],
+        "departure": "2026-09-15T19:45:00",
+        "arrival": "2026-09-16T18:10:00"
+      }
+    },
+    {
+      "destination": "SKD",
+      "origin_out": "VCE",
+      "origin_ret": "VCE",
+      "open_jaw": false,
+      "total_eur": 1043.0,
+      "outbound": {
+        "from": "VCE",
+        "to": "SKD",
+        "price_eur": 473.0,
+        "duration_min": 945,
+        "stops": 1,
+        "airlines": [
+          "Turkish Airlines"
+        ],
+        "departure": "2026-09-07T09:20:00",
+        "arrival": "2026-09-08T04:05:00"
+      },
+      "return": {
+        "from": "SKD",
+        "to": "VCE",
+        "price_eur": 570.0,
+        "duration_min": 630,
+        "stops": 1,
+        "airlines": [
+          "Turkish Airlines"
+        ],
+        "departure": "2026-09-15T05:35:00",
+        "arrival": "2026-09-15T13:05:00"
+      }
+    },
+    {
+      "destination": "TER",
+      "origin_out": "TRN",
+      "origin_ret": "TRN",
+      "open_jaw": false,
+      "total_eur": 1044.0,
+      "outbound": {
+        "from": "TRN",
+        "to": "TER",
+        "price_eur": 544.0,
+        "duration_min": 840,
+        "stops": 2,
+        "airlines": [
+          "Alitalia",
+          "TAP Portugal"
+        ],
+        "departure": "2026-09-07T11:15:00",
+        "arrival": "2026-09-07T23:15:00"
+      },
+      "return": {
+        "from": "TER",
+        "to": "TRN",
+        "price_eur": 500.0,
+        "duration_min": 835,
+        "stops": 2,
+        "airlines": [
+          "Alitalia",
+          "TAP Portugal"
+        ],
+        "departure": "2026-09-15T07:05:00",
+        "arrival": "2026-09-15T23:00:00"
+      }
+    },
+    {
+      "destination": "ASB",
+      "origin_out": "MXP",
+      "origin_ret": "VCE",
+      "open_jaw": true,
+      "total_eur": 1280.0,
+      "outbound": {
+        "from": "MXP",
+        "to": "ASB",
+        "price_eur": 570.0,
+        "duration_min": 790,
+        "stops": 1,
+        "airlines": [
+          "flydubai",
+          "Emirates"
+        ],
+        "departure": "2026-09-07T11:30:00",
+        "arrival": "2026-09-08T03:40:00"
+      },
+      "return": {
+        "from": "ASB",
+        "to": "VCE",
+        "price_eur": 710.0,
+        "duration_min": 485,
+        "stops": 1,
+        "airlines": [
+          "Turkish Airlines"
+        ],
+        "departure": "2026-09-15T03:15:00",
+        "arrival": "2026-09-15T08:20:00"
+      }
+    },
+    {
+      "destination": "RGN",
+      "origin_out": "TRN",
+      "origin_ret": "MXP",
+      "open_jaw": true,
+      "total_eur": 1471.0,
+      "outbound": {
+        "from": "TRN",
+        "to": "RGN",
+        "price_eur": 810.0,
+        "duration_min": 1430,
+        "stops": 2,
+        "airlines": [
+          "Thai Airways",
+          "Lufthansa Cargo"
+        ],
+        "departure": "2026-09-07T06:15:00",
+        "arrival": "2026-09-08T10:35:00"
+      },
+      "return": {
+        "from": "RGN",
+        "to": "MXP",
+        "price_eur": 661.0,
+        "duration_min": 1025,
+        "stops": 1,
+        "airlines": [
+          "Thai Airways"
+        ],
+        "departure": "2026-09-15T19:00:00",
+        "arrival": "2026-09-16T07:35:00"
+      }
+    },
+    {
+      "destination": "NRT",
+      "origin_out": "BGY",
+      "origin_ret": "BGY",
+      "open_jaw": false,
+      "total_eur": 1794.0,
+      "outbound": {
+        "from": "BGY",
+        "to": "NRT",
+        "price_eur": 857.0,
+        "duration_min": 1255,
+        "stops": 1,
+        "airlines": [
+          "flydubai",
+          "Emirates"
+        ],
+        "departure": "2026-09-07T13:40:00",
+        "arrival": "2026-09-08T17:35:00"
+      },
+      "return": {
+        "from": "NRT",
+        "to": "BGY",
+        "price_eur": 937.0,
+        "duration_min": 1870,
+        "stops": 2,
+        "airlines": [
+          "flydubai",
+          "Jetstar Japan",
+          "Emirates"
+        ],
+        "departure": "2026-09-15T12:00:00",
+        "arrival": "2026-09-16T12:10:00"
+      }
+    },
+    {
+      "destination": "TNR",
+      "origin_out": "LIN",
+      "origin_ret": "VRN",
+      "open_jaw": true,
+      "total_eur": 2286.0,
+      "outbound": {
+        "from": "LIN",
+        "to": "TNR",
+        "price_eur": 860.0,
+        "duration_min": 1785,
+        "stops": 2,
+        "airlines": [
+          "Alitalia",
+          "Kenya Airways"
+        ],
+        "departure": "2026-09-07T09:05:00",
+        "arrival": "2026-09-08T15:50:00"
+      },
+      "return": {
+        "from": "TNR",
+        "to": "VRN",
+        "price_eur": 1426.0,
+        "duration_min": 1335,
+        "stops": 2,
+        "airlines": [
+          "Kenya Airways",
+          "Air Dolomiti",
+          "Lufthansa Cargo"
+        ],
+        "departure": "2026-09-15T16:40:00",
+        "arrival": "2026-09-16T13:55:00"
+      }
+    },
+    {
+      "destination": "DUD",
+      "origin_out": "TRS",
+      "origin_ret": "TRS",
+      "open_jaw": false,
+      "total_eur": 2735.0,
+      "outbound": {
+        "from": "TRS",
+        "to": "DUD",
+        "price_eur": 1429.0,
+        "duration_min": 3720,
+        "stops": 3,
+        "airlines": [
+          "Alitalia",
+          "Jetstar",
+          "Emirates"
+        ],
+        "departure": "2026-09-07T11:15:00",
+        "arrival": "2026-09-10T11:15:00"
+      },
+      "return": {
+        "from": "DUD",
+        "to": "TRS",
+        "price_eur": 1306.0,
+        "duration_min": 2705,
+        "stops": 3,
+        "airlines": [
+          "Alitalia",
+          "Jetstar",
+          "Emirates"
+        ],
+        "departure": "2026-09-15T11:50:00",
+        "arrival": "2026-09-16T22:55:00"
+      }
+    },
+    {
+      "destination": "ISG",
+      "origin_out": "VRN",
+      "origin_ret": "GOA",
+      "open_jaw": true,
+      "total_eur": 2880.0,
+      "outbound": {
+        "from": "VRN",
+        "to": "ISG",
+        "price_eur": 1149.0,
+        "duration_min": 1315,
+        "stops": 2,
+        "airlines": [
+          "All Nippon Airways",
+          "Air Dolomiti"
+        ],
+        "departure": "2026-09-07T06:30:00",
+        "arrival": "2026-09-08T11:25:00"
+      },
+      "return": {
+        "from": "ISG",
+        "to": "GOA",
+        "price_eur": 1731.0,
+        "duration_min": 2505,
+        "stops": 3,
+        "airlines": [
+          "Vueling",
+          "Japan Airlines",
+          "Qatar Airways"
+        ],
+        "departure": "2026-09-15T11:10:00",
+        "arrival": "2026-09-16T21:55:00"
+      }
+    },
+    {
+      "destination": "YFB",
+      "origin_out": "BLQ",
+      "origin_ret": "RMI",
+      "open_jaw": true,
+      "total_eur": 8125.0,
+      "outbound": {
+        "from": "BLQ",
+        "to": "YFB",
+        "price_eur": 4481.0,
+        "duration_min": 1745,
+        "stops": 3,
+        "airlines": [
+          "Alitalia",
+          "Canadian North",
+          "Air Canada"
+        ],
+        "departure": "2026-09-07T11:05:00",
+        "arrival": "2026-09-08T10:10:00"
+      },
+      "return": {
+        "from": "YFB",
+        "to": "RMI",
+        "price_eur": 3644.0,
+        "duration_min": 2470,
+        "stops": 2,
+        "airlines": [
+          "British Airways",
+          "Canadian North",
+          "Air Canada"
+        ],
+        "departure": "2026-09-15T20:35:00",
+        "arrival": "2026-09-17T19:45:00"
+      }
+    }
+  ],
+  "total_destinations": 18,
+  "out_routes_found": 63,
+  "ret_routes_found": 64,
+  "note": "Open-jaw optimized. Out 2026-09-07, ret 2026-09-15. USD->EUR x0.92."
 }
