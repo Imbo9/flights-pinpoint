@@ -3,6 +3,9 @@ name: Flight Search
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   search:
     runs-on: ubuntu-latest
@@ -13,7 +16,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: claude/flight-search-automation-gmsw9
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -26,14 +28,34 @@ jobs:
       - name: Run flight search
         run: python search_flights.py
 
-      - name: Commit results to branch
+      - name: Upload results via GitHub API
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          BRANCH: claude/flight-search-automation-gmsw9
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git pull --rebase origin claude/flight-search-automation-gmsw9
-          git add results.json
-          git diff --cached --quiet || git commit -m "chore: update flight search results"
-          git push
+          CONTENT=$(base64 -w 0 results.json)
+          # Get current file SHA if it exists (needed for updates)
+          SHA=$(curl -s -H "Authorization: token $GH_TOKEN" \
+            "https://api.github.com/repos/$REPO/contents/results.json?ref=$BRANCH" \
+            | python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('sha',''))" 2>/dev/null || echo "")
+          # Build JSON payload
+          if [ -n "$SHA" ]; then
+            PAYLOAD=$(python3 -c "
+import json
+print(json.dumps({'message':'chore: update flight search results','content':'$CONTENT','branch':'$BRANCH','sha':'$SHA'}))
+")
+          else
+            PAYLOAD=$(python3 -c "
+import json
+print(json.dumps({'message':'chore: add flight search results','content':'$CONTENT','branch':'$BRANCH'}))
+")
+          fi
+          curl -s -X PUT \
+            -H "Authorization: token $GH_TOKEN" \
+            -H "Content-Type: application/json" \
+            "https://api.github.com/repos/$REPO/contents/results.json" \
+            -d "$PAYLOAD" | python3 -c "import json,sys; r=json.load(sys.stdin); print('OK:', r.get('content',{}).get('name','?'))"
 
       - name: Upload results artifact
         uses: actions/upload-artifact@v4
