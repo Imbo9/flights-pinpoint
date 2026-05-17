@@ -3,16 +3,20 @@ name: Flight Search
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   search:
     runs-on: ubuntu-latest
-    timeout-minutes: 55
+    timeout-minutes: 30
 
     steps:
-      - name: Checkout
+      - name: Checkout feature branch
         uses: actions/checkout@v4
         with:
           ref: claude/flight-search-automation-gmsw9
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -25,7 +29,14 @@ jobs:
       - name: Run flight search
         run: python search_flights.py
 
-      - name: Upload results
+      - name: Upload results via GitHub API
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          BRANCH: claude/flight-search-automation-gmsw9
+        run: python3 upload_results.py
+
+      - name: Upload results artifact
         uses: actions/upload-artifact@v4
         with:
           name: flight-results
